@@ -28,6 +28,7 @@ $conf['footer']['show']['post'] = true; //show footer at post page
 $conf['footer']['show']['home'] = true;//show footer at home page
 $conf['comments']['add'] = false;//add comments form and function
 $conf['comments']['show'] = true;//show comments
+$conf['comments']['addText'] = 'Add your comment!';//add comment text
 //custom pages
 $names['show1'] = false;//show custom page on navbar
 $names['custom1ur'] = $names['url'].'about.php';//custom page url
