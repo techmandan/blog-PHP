@@ -1,8 +1,6 @@
 <?
-//function start(){
 session_start();
-//}
-//function connect(){
-$mysqli = new mysqli("localhost", "bulant", "Aritma123", "danblog");
-//}
+include('names.php');
+$mysqli = new mysqli($database['location'], $database['username'], $database['password'], $database['name']);
+
 ?>
