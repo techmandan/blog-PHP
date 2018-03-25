@@ -1,39 +1,21 @@
 <?
-include('../hyperlight/hyperlight.php');
-require_once('../functions.php');
+include('../hyperlight/hyperlight.php');//syntax coloring
+require_once('../functions.php');//settings, config
 if(isset($_GET['id']) | !empty($_GET['id'])){
 	$search = $_GET['id'];
 $result = $mysqli->query("SELECT * FROM blog WHERE id='".$_GET['id']."'");
 } else {
-	header('location: ../index.php');
+	header('location: '.$names['url']);//if isn't set ID, redirect to home page
 	exit;
 }
+if($conf['comments']['add']){//if comment adding is true
 if(isset($_POST["name"])){
 	$sql = "INSERT INTO comments (name, text, post_id)
-VALUES ('". $_POST["name"] . "', '".$_POST['text'] ."', '".$_GET["id"]. "')";
+VALUES ('". $_POST["name"] . "', '".$_POST['text'] ."', '".$_GET["id"]. "')";//add comment
 
-if ($mysqli->query($sql) === TRUE) {
-} } 
-$currentPage = 'článek';
-if($_GET['id'] === '1'){
-	$currentPage = 'O mně';}
-function getContents($str, $startDelimiter, $endDelimiter) {
-  $contents = array();
-  $startDelimiterLength = strlen($startDelimiter);
-  $endDelimiterLength = strlen($endDelimiter);
-  $startFrom = $contentStart = $contentEnd = 0;
-  while (false !== ($contentStart = strpos($str, $startDelimiter, $startFrom))) {
-    $contentStart += $startDelimiterLength;
-    $contentEnd = strpos($str, $endDelimiter, $contentStart);
-    if (false === $contentEnd) {
-      break;
-    }
-    $contents[] = substr($str, $contentStart, $contentEnd - $contentStart);
-    $startFrom = $contentEnd + $endDelimiterLength;
-  }
-
-  return $contents;
-}
+if ($mysqli->query($sql) === TRUE) {//do something when the query don't have errors
+} } }
+$currentPage = $names['blog-post'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +30,7 @@ function getContents($str, $startDelimiter, $endDelimiter) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Daniel Bulant - blog</title>
+    <title><?=$names['pageTitle']; ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -75,16 +57,16 @@ include('../navbar.php');?>
 			<?php while($a = $result->fetch_assoc()) { ?>
           <!-- Title -->
           <h1 class="mt-4"><?=$a['title']; ?></h1>
-			<? if($a['category'] == 'PHP'){ ?>
+			<? if($a['category'] == 'PHP' && $conf['phpWarn']){ //check if is category PHP and if config has set to show php warning?>
 			<div class="alert alert-danger fade in">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Pozor!</strong> Všechny PHP tutorialy jsou napsány ve verzi 7.1! U starších(<7.1) nemusí vše fungovat!
+  <?=$names['phpWarn']; ?>
 </div>
 			<?}?>
           <!-- Author -->
           <p class="lead">
-            od
-            <a href="#"><?=$a['author']; ?></a>
+            <?=$names['from']; ?>
+            <a href="#"><? if(isset($a['author'])){echo $a['author'];}else{ echo $names['author']; }//check if is set author else show default ?></a>
           </p>
 
           <hr>
@@ -102,19 +84,9 @@ include('../navbar.php');?>
           <!-- Post Content -->
           <p class="lead"><?=$a['description']; ?></p>
 
-          <p><?/*
-$parsed = getContents($a['text'], '<code>', '</code>');
-			$nParsed = count($parsed)-1;
-			$i = 0;
-$array = array();
-while ($i++ < $nParsed)
-{
-	$highlighted[] = hyperlight(html_entity_decode($parsed[$i]), 'PHP');
-}
-													  */
-													  echo $a['text']; ?>
+          <p><? echo $a['text']; ?>
 			 </p>
-
+<?//blockquote template for use, can be deleted?>
           <!--blockquote class="blockquote">
             <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
             <footer class="blockquote-footer">Someone famous in
@@ -125,8 +97,8 @@ while ($i++ < $nParsed)
 	<?php } ?>
 			<?php } else { ?>
 			<p>ERROR, bad ID.</p>
-			<?php } ?>
-          <!-- Comments Form -->
+			<?php }//if there's no post with that ID ?>
+          <? if($conf['comments']['add']){?><!-- Comments Form -->
           <div class="card my-4">
             <h5 class="card-header">Zanech koment:</h5>
             <div class="card-body">
@@ -138,8 +110,8 @@ while ($i++ < $nParsed)
                 <button type="submit" class="btn btn-primary">Odeslat</button>
               </form>
             </div>
-          </div>
-			<?
+          </div><?}?>
+			<? if($conf['comments']['show']){//check conf if comments show are true
 $result1 = $mysqli->query("SELECT * FROM comments WHERE post_id='".$_GET['id']."'");
 ?><?php if($result->num_rows) { ?>
 			<?php while($a1 = $result1->fetch_assoc()) { ?>
@@ -153,8 +125,8 @@ $result1 = $mysqli->query("SELECT * FROM comments WHERE post_id='".$_GET['id']."
           </div>	<?php } ?>
 			<?php } else { ?>
 			<p>Žádné komentáře. Buď první!</p>
-			<?php } ?>
-
+			<?php }} ?>
+<?//Template for later use?>
           <!-- Comment with nested comments >
           <div class="media mb-4">
             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
@@ -195,7 +167,7 @@ $result1 = $mysqli->query("SELECT * FROM comments WHERE post_id='".$_GET['id']."
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; danbulant.eu 2018</p>
+        <p class="m-0 text-center text-white">Copyright &copy; <?=$names['url']; ?> 2018</p>
       </div>
       <!-- /.container -->
     </footer>
