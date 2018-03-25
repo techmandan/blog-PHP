@@ -7,8 +7,7 @@ if($id === '1'){
 	$about = true;
 } else {
 	$about = false; }?>
-<meta name="google-site-verification" content="7YYmL1DX9ji1Rw7Z_QR24wqhqSw3arBsdMjYQ7YqmIg" />
-<link rel="icon" sizes="192x192" href="http://danbulant.jecool.net/favicon.ico">
+<link rel="icon" sizes="192x192" href="<?=$names['icourl']; ?>">
 <link rel="icon" type="image/x-icon" href="<?=$names['icourl']; ?>" />
 <meta name="theme-color" content="<?=$names['theme']; ?>">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
@@ -19,23 +18,19 @@ if($id === '1'){
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-             <? if($about){ ?><li class="nav-item">
-              <a class="nav-link" href="http://blog.danbulant.eu/post/index.php?id=1">domov</a>
-			  </li><? } ?>
+            
 			  <li class="nav-item active">
-              <a class="nav-link" href="//blog.danbulant.eu"><?=$currentPage; ?>
+              <a class="nav-link" href="#"><?=$currentPage; ?>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-			  <? if(!$about){ ?><li class="nav-item">
-              <a class="nav-link" href="http://blog.danbulant.eu/post/index.php?id=1">O mně</a>
-			  </li><? } ?>
+		<? if($names['show1']){?>	  
             <li class="nav-item">
-              <a class="nav-link" href="#">Služby</a>
-            </li>
+              <a class="nav-link" href="<?=$page['custom1url']; ?>"><?=$page['custom1']; ?></a>
+            </li><?} if($names['show2']){?>
             <li class="nav-item">
-              <a class="nav-link" href="#">Kontakt</a>
-            </li>
+              <a class="nav-link" href="<?=$page['custom2url']; ?>"><?=$page['custom2']; ?></a>
+            </li><?}?>
           </ul>
         </div>
       </div>
