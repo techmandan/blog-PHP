@@ -51,19 +51,11 @@ $currentPage = $names['home'];
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4"><?=$names['author']; ?>
-            <small>and his blog</small>
+          <h1 class="my-4"><?=$names['blogTitle']; ?>
+            <small><?=$names['blogSubtitle']; ?></small>
           </h1>
 			 <!-- Blog Post -->
-          <div class="card mb-4">
-            <div class="card-body">
-              <h2 class="card-title">Demo</h2>
-              <p class="card-text">This is a demo page. Also, the post bellow are from my czech blog.</p>
-            </div>
-            <div class="card-footer text-muted">
-              Writen today by 
-              <a href="#">me</a>
-			  </div></div>
+          
 	<?php if($result->num_rows && !empty($result)) { ?>
 			<?php while($a = $result->fetch_assoc()) { ?>
           <!-- Blog Post -->
