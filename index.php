@@ -51,9 +51,19 @@ $currentPage = $names['home'];
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">Daniel Bulant
-            <small>a jeho blog</small>
+          <h1 class="my-4"><?=$names['author']; ?>
+            <small>and his blog</small>
           </h1>
+			 <!-- Blog Post -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <h2 class="card-title">Demo</h2>
+              <p class="card-text">This is a demo page. Also, the post bellow are from my czech blog.</p>
+            </div>
+            <div class="card-footer text-muted">
+              Writen today by 
+              <a href="#">me</a>
+			  </div></div>
 	<?php if($result->num_rows && !empty($result)) { ?>
 			<?php while($a = $result->fetch_assoc()) { ?>
           <!-- Blog Post -->
@@ -69,7 +79,7 @@ $currentPage = $names['home'];
               <a href="./post/index.php?id=<?=$a['id']; ?>" class="btn btn-primary"><?=$names['readmore']; ?> &rarr;</a>
             </div>
             <div class="card-footer text-muted">
-              Napsano <?=$a['date']; ?> by
+              <?=$names['writen']; echo $a['date'].' '.$names['by']; ?>
               <a href="#"><? if(isset($a['author'])){ echo $a['author']; } else { echo $names['author']; }?></a>
 			  </div></div>
           	<?php } ?>
