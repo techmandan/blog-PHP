@@ -9,8 +9,8 @@ if($id === '1'){
 	$about = false; }?>
 <meta name="google-site-verification" content="7YYmL1DX9ji1Rw7Z_QR24wqhqSw3arBsdMjYQ7YqmIg" />
 <link rel="icon" sizes="192x192" href="http://danbulant.jecool.net/favicon.ico">
-<link rel="icon" type="image/x-icon" href="http://danbulant.jecool.net/favicon.ico" />
-<meta name="theme-color" content="#268cff"><!-- 0379FE"-->
+<link rel="icon" type="image/x-icon" href="<?=$names['icourl']; ?>" />
+<meta name="theme-color" content="<?=$names['theme']; ?>">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
       <div class="container">
         <a class="navbar-brand" href="//blog.danbulant.eu">Daniel Bulant</a>
