@@ -7,6 +7,7 @@ if($id === '1'){
 	$about = true;
 } else {
 	$about = false; }?>
+<body onload="<?=$names['onload']; ?>">
 <link rel="icon" sizes="192x192" href="<?=$names['icourl']; ?>">
 <link rel="icon" type="image/x-icon" href="<?=$names['icourl']; ?>" />
 <meta name="theme-color" content="<?=$names['theme']; ?>">
