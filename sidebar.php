@@ -1,11 +1,11 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93897496-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?=$names['Ganalytics']; ?>"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-93897496-1');
+  gtag('config', '<?=$names['Ganalytics']; ?>');
 </script>
 
 <!-- Sidebar Widgets Column -->
