@@ -3,6 +3,8 @@
 
 Config is made by text so no more _install.php_ => just upload _SQL file to your database_ and **full-fill** the names.php and you can make your first blog post.
 
+<a href='http://blog-php.danbulant.eu'>DEMO HERE</a>
+
 
 ## Config
 ### Configuration is easy as on other software, the only bad thing is the reality that it has no graphics.
