@@ -1,14 +1,21 @@
-<?
+<!--<endora></endora>--><?
 //this config file is for setting => here is set every text and database
-$database['name'] = 'example';
+$database['name'] = 'blog';
+$database['subname'] = 'blog';
 $database['username'] = 'admin';
-$database['password'] = 'password';
+$database['password'] = 'admin123';
 $database['location'] = 'localhost';
+$database['category'] = 'category';
+$database['desc'] = 'description';
 //end MySQLi config
 //start names config
 //global
+$names['readmore'] = 'Read more';
+$names['pageTitle'] = 'My own blog';
+$names['category'] = 'categories:';
+$names['home'] = 'home';
 $names['author'] = 'William Shakespear';//author name => show inside meta and if no author is set from SQL
-$names['url'] = 'http://example.com';//base URL with http://
+$names['url'] = 'http://blog-php.danbulant.eu';//base URL with http://
 $names['desc'] = 'This is the page description';//meta description
 $names['title'] = 'Example title';//webside title
 $names['blog-post'] = 'Post - my own forum';//navbar post page title
@@ -16,13 +23,20 @@ $names['theme'] = '#268cff';//chrome theme color
 $names['icourl'] = 'https://example.com/favicon.ico';//full icon url
 $names['onLoad'] = 'alert("Loaded!");';//script to start when page load is complete
 $names['from'] = 'from:';//from text
-$names['datePost'] = 'writed in ';//text to display BEFORE the date. Mention the {space} at the end.
+$names['datePost'] = 'writen in ';//text to display BEFORE the date. Mention the {space} at the end.
 //analytics
 $names['Ganalytics'] = 'UA-93897496-1';//example code
 //sidebar
+$names['cardText'] = 'We are working on it HARD!';
+$names['404Title'] = 'Not found';
+$names['404Desc'] = 'We don\'t found anything :C';
+$names['showAll'] = 'show all';
 $names['search'] = 'Search something';//search text
 $names['searchbtn'] = 'Search!';//search button text
 $names['cardtext'] = 'This blogging system was made by Daniel Bulant!';
+//copyright
+$names['copyright']['before'] = 'Copyright';
+$names['copyright']['after'] = '<br/>MIT LICENSED';
 //conf
 $conf['footer']['show']['post'] = true; //show footer at post page
 $conf['footer']['show']['home'] = true;//show footer at home page
