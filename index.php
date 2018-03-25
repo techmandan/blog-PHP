@@ -4,14 +4,14 @@ require_once('functions.php');
 if(isset($_GET['search']) | !empty($_GET['search'])){
 	//if not searching, show all
 	$search = $_GET['search'];
-$result = $mysqli->query("SELECT * FROM "$database['name']" WHERE "$database['desc']" LIKE '%".$_GET['search']."%'");
+$result = $mysqli->query("SELECT * FROM "$database['subname']" WHERE "$database['desc']" LIKE '%".$_GET['search']."%'");
 } elseif(isset($_GET['category']) | !empty($_GET['category'])){
 	//searching from description
 	$category = $_GET['category'];
-$result = $mysqli->query("SELECT * FROM "$database['name']" WHERE "$database['category']" LIKE '%".$_GET['category']."%'");
+$result = $mysqli->query("SELECT * FROM "$database['subname']" WHERE "$database['category']" LIKE '%".$_GET['category']."%'");
 } else {
 	//do not show post with category "secret"
-	$result = $mysqli->query("SELECT * FROM "$database['desc']" WHERE NOT "$database['category']"='secret'");
+	$result = $mysqli->query("SELECT * FROM "$database['subname']" WHERE NOT "$database['category']"='secret'");
 }
 $currentPage = $names['home'];
 ?>
