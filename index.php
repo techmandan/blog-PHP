@@ -1,26 +1,29 @@
 <?
 require_once('functions.php');
+//config file
 if(isset($_GET['search']) | !empty($_GET['search'])){
+	//if not searching, show all
 	$search = $_GET['search'];
-$result = $mysqli->query("SELECT * FROM blog WHERE description LIKE '%".$_GET['search']."%'");
+$result = $mysqli->query("SELECT * FROM "$database['name']" WHERE "$database['desc']" LIKE '%".$_GET['search']."%'");
 } elseif(isset($_GET['category']) | !empty($_GET['category'])){
+	//searching from description
 	$category = $_GET['category'];
-$result = $mysqli->query("SELECT * FROM blog WHERE category LIKE '%".$_GET['category']."%'");
+$result = $mysqli->query("SELECT * FROM "$database['name']" WHERE "$database['category']" LIKE '%".$_GET['category']."%'");
 } else {
-	$result = $mysqli->query("SELECT * FROM blog WHERE NOT category='secret'");
+	//do not show post with category "secret"
+	$result = $mysqli->query("SELECT * FROM "$database['desc']" WHERE NOT "$database['category']"='secret'");
 }
-$currentPage = 'domov';
+$currentPage = $names['home'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<meta name="google-site-verification" content="7YYmL1DX9ji1Rw7Z_QR24wqhqSw3arBsdMjYQ7YqmIg" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Můj osobní blog.">
-    <meta name="author" content="Daniel Bulant">
+    <meta name="description" content="<?=$names['desc']; ?>">
+    <meta name="author" content="<?=$names['author']; ?>, Daniel Bulant><!--keep me there(see MIT license)-->
 
-    <title>Blog - danbulant.eu</title>
+    <title><?=$names['pageTitle']; ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -49,29 +52,31 @@ $currentPage = 'domov';
 			<?php while($a = $result->fetch_assoc()) { ?>
           <!-- Blog Post -->
           <div class="card mb-4">
-            <!--img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"-->
+				<? if(isset($a['img'])){ ?>
+            <img class="card-img-top" src="<?=$a['img']; ?>" alt="Card image cap">
+										 <?}?>
             <div class="card-body">
               <h2 class="card-title"><?=$a['title']; ?></h2>
               <p class="card-text"><?
 						if(isset($_GET['search']) && !empty($_GET['search'])){ echo preg_replace("/\p{L}*?".preg_quote($_GET['search'])."\p{L}*/ui", "<b>$0</b>",$a['description']);
 																			 } else{ echo $a['description'];}?></p>
-              <a href="./post/index.php?id=<?=$a['id']; ?>" class="btn btn-primary">Číst dál &rarr;</a>
+              <a href="./post/index.php?id=<?=$a['id']; ?>" class="btn btn-primary"><?=$names['readmore']; ?> &rarr;</a>
             </div>
             <div class="card-footer text-muted">
               Napsano <?=$a['date']; ?> by
-              <a href="#">Daniel Bulant</a>
+              <a href="#"><? if(isset($a['author'])){ echo $a['author']; } else { echo $names['author']; }?></a>
 			  </div></div>
           	<?php } ?>
 			<?php } else { ?>
 			  <div class="card mb-4">
             <!--img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"-->
             <div class="card-body">
-              <h2 class="card-title">Nic nenalezeno</h2>
-              <p class="card-text">Bohužel jsme nic nenašly.</p>
-              <a href="http://blog.danbulant.eu/" class="btn btn-primary">zobrazit vše &rarr;</a>
+              <h2 class="card-title"><?=$names['404Title']; ?></h2>
+              <p class="card-text"><?=$names['404Desc']; ?></p>
+              <a href="http://blog.danbulant.eu/" class="btn btn-primary"><?=$names['showAll']; ?> &rarr;</a>
             </div>
             <div class="card-footer text-muted">
-             Chybička se vloudila..
+             Some error comes...
 				  </div></div>
 			<?php } ?>
 
@@ -87,7 +92,7 @@ $currentPage = 'domov';
     <!-- Footer -->
     <footer class="py-5 bg-info">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; danbulant.eu 2018</p>
+        <p class="m-0 text-center text-white">Copyright &copy; <?=$names['url']; ?> 2018</p>
       </div>
       <!-- /.container -->
     </footer>
