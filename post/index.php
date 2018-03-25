@@ -72,14 +72,14 @@ include('../navbar.php');?>
           <hr>
 
           <!-- Date/Time -->
-          <p>Napsal v <?=$a['date']; ?></p>
+          <p><? echo $names['datePost'].$a['date']; ?></p>
 
           <hr>
 
-          <!-- Preview Image -->
-          <!--img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
-
-          <hr-->
+          <!-- Preview Image --><? if(isset($a['img'])){ ?>
+          <img class="img-fluid rounded" src="<?=$a['img']; ?>" alt="Post image">
+<?}?>
+          <hr>
 
           <!-- Post Content -->
           <p class="lead"><?=$a['description']; ?></p>
@@ -100,7 +100,7 @@ include('../navbar.php');?>
 			<?php }//if there's no post with that ID ?>
           <? if($conf['comments']['add']){?><!-- Comments Form -->
           <div class="card my-4">
-            <h5 class="card-header">Zanech koment:</h5>
+            <h5 class="card-header"><?=$names['comments']['addText']; ?></h5>
             <div class="card-body">
               <form method='POST'>
                 <div class="form-group">
