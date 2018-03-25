@@ -10,11 +10,13 @@ $database['desc'] = 'description';
 //end MySQLi config
 //start names config
 //global
+$names['blogSubtitle'] = 'and his blog';
 $names['readmore'] = 'Read more';
 $names['pageTitle'] = 'My own blog';
 $names['category'] = 'categories:';
 $names['home'] = 'home';
 $names['author'] = 'William Shakespear';//author name => show inside meta and if no author is set from SQL
+$names['blogTitle'] = $names['author'];
 $names['url'] = 'http://blog-php.danbulant.eu';//base URL with http://
 $names['desc'] = 'This is the page description';//meta description
 $names['title'] = 'Example title';//webside title
