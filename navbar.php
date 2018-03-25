@@ -27,10 +27,10 @@ if($id === '1'){
             </li>
 		<? if($names['show1']){?>	  
             <li class="nav-item">
-              <a class="nav-link" href="<?=$page['custom1url']; ?>"><?=$page['custom1']; ?></a>
+              <a class="nav-link" href="<?=$names['custom1url']; ?>"><?=$names['custom1']; ?></a>
             </li><?} if($names['show2']){?>
             <li class="nav-item">
-              <a class="nav-link" href="<?=$page['custom2url']; ?>"><?=$page['custom2']; ?></a>
+              <a class="nav-link" href="<?=$names['custom2url']; ?>"><?=$names['custom2']; ?></a>
             </li><?}?>
           </ul>
         </div>
