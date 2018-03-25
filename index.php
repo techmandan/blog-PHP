@@ -33,7 +33,6 @@ $currentPage = $names['home'];
 
   </head>
 
-  <body>
 
    <? include('navbar.php');?>
 
