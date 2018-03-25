@@ -30,7 +30,7 @@ $currentPage = $names['blog-post'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?=$names['pageTitle']; ?></title>
+    <title><?=$names['Title']; ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
