@@ -1,2 +1,1 @@
-#blog-PHP
-##An easy tool to create your own blog with MySQLi connected.
+<h1>blog-PHP</h1>
