@@ -11,6 +11,7 @@ $names['author'] = 'William Shakespear';//author name => show inside meta and if
 $names['url'] = 'http://example.com';//base URL with http://
 $names['desc'] = 'This is the page description';//meta description
 $names['title'] = 'Example title';//webside title
+$names['blog-post'] = 'Post - my own forum';//navbar post page title
 $names['theme'] = '#268cff';//chrome theme color
 $names['icourl'] = 'https://example.com/favicon.ico';//full icon url
 $names['onLoad'] = 'alert("Loaded!");';//script to start when page load is complete
@@ -23,6 +24,8 @@ $names['search'] = 'Search something';//search text
 $names['searchbtn'] = 'Search!';//search button text
 $names['cardtext'] = 'This blogging system was made by Daniel Bulant!';
 //conf
+$conf['footer']['show']['post'] = true; //show footer at post page
+$conf['footer']['show']['home'] = true;//show footer at home page
 $conf['comments']['add'] = false;//add comments form and function
 $conf['comments']['show'] = true;//show comments
 //custom pages
