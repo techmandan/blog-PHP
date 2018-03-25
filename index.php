@@ -4,16 +4,23 @@ require_once('functions.php');
 if(isset($_GET['search']) | !empty($_GET['search'])){
 	//if not searching, show all
 	$search = $_GET['search'];
-$result = $mysqli->query("SELECT * FROM "$database['subname']" WHERE "$database['desc']" LIKE '%".$_GET['search']."%'");
+$result = $mysqli->query("SELECT * FROM ".$database['subname']." WHERE ".$database['desc']." LIKE '%".$_GET['search']."%'");
 } elseif(isset($_GET['category']) | !empty($_GET['category'])){
 	//searching from description
 	$category = $_GET['category'];
-$result = $mysqli->query("SELECT * FROM "$database['subname']" WHERE "$database['category']" LIKE '%".$_GET['category']."%'");
+if($result = $mysqli->query("SELECT * FROM ".$database['subname']." WHERE ".$database['category']." LIKE '%".$_GET['category']."%'")){
+	echo '<br/><br/>NICE';
+} else {
+	echo '<script>alert("ERROR")</script>';
+}
 } else {
 	//do not show post with category "secret"
-	$result = $mysqli->query("SELECT * FROM "$database['subname']" WHERE NOT "$database['category']"='secret'");
-}
+	if(!$result = $mysqli->query("SELECT * FROM ".$database['subname']." WHERE NOT ".$database['category']."='secret'")){
+	echo '<script>alert("ERROR")</script>';
+	}}
 $currentPage = $names['home'];
+//".$database['subname']."
+//".$database['category']."
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +79,7 @@ $currentPage = $names['home'];
             <div class="card-body">
               <h2 class="card-title"><?=$names['404Title']; ?></h2>
               <p class="card-text"><?=$names['404Desc']; ?></p>
-              <a href="http://blog.danbulant.eu/" class="btn btn-primary"><?=$names['showAll']; ?> &rarr;</a>
+              <a href="<?=$names['url']; ?>" class="btn btn-primary"><?=$names['showAll']; ?> &rarr;</a>
             </div>
             <div class="card-footer text-muted">
              Some error comes...
