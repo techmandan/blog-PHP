@@ -13,7 +13,7 @@ if($id === '1'){
 <meta name="theme-color" content="<?=$names['theme']; ?>">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="//blog.danbulant.eu">Daniel Bulant</a>
+        <a class="navbar-brand" href="<?=$names['url']; ?>"><?=$names['title']; ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
