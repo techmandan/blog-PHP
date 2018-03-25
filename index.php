@@ -21,7 +21,7 @@ $currentPage = $names['home'];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="<?=$names['desc']; ?>">
-    <meta name="author" content="<?=$names['author']; ?>, Daniel Bulant><!--keep me there(see MIT license)-->
+    <meta name="author" content="<?=$names['author']; ?>, Daniel Bulant"><!--keep me there(see MIT license)-->
 
     <title><?=$names['pageTitle']; ?></title>
 
