@@ -1,4 +1,5 @@
 {
+    "package-name": "blog-PHP",
     "name": "danielbulant/blog-php",
     "type": "software",
     "description": "An easy blogging software made with php and MySQLi",
