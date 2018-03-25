@@ -164,13 +164,13 @@ $result1 = $mysqli->query("SELECT * FROM comments WHERE post_id='".$_GET['id']."
     </div>
     <!-- /.container -->
 
-    <!-- Footer -->
+    <!-- Footer --><? if($conf['footer']['show']){ ?>
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; <?=$names['url']; ?> 2018</p>
+        <p class="m-0 text-center text-white"><?=$names['copyright']['before']; ?> <?=$names['url']; ?> 2018<?=$names['copyright']['after']; ?></p>
       </div>
       <!-- /.container -->
-    </footer>
+    </footer><? } ?>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
