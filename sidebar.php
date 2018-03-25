@@ -13,13 +13,13 @@
 
           <!-- Search Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Hledat</h5>
+            <h5 class="card-header"><?=$names['search']; ?></h5>
             <div class="card-body">
               <div class="input-group">
-				  <form action='//blog.danbulant.eu' method='GET'>
-                <input type="text" class="form-control" name='search' placeholder="Hledej...">
+				  <form action='<?=$names['url']; ?>' method='GET'>
+                <input type="text" class="form-control" name='search' placeholder="<?=$names['search']; ?>">
                 <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="submit">jdi!</button>
+                  <button class="btn btn-secondary" type="submit"><?=$names['searchbtn']; ?></button>
                 </span>
 				  </form>
               </div>
@@ -28,7 +28,7 @@
 
           <!-- Categories Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Kategorie</h5>
+            <h5 class="card-header"><?=$names['category']; ?></h5>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-6">
@@ -58,8 +58,8 @@
 
           <!-- Side Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Daniel Bulant</h5>
+            <h5 class="card-header"><?=$names['author']; ?></h5>
             <div class="card-body">
-            Tento blog je zatim ve vyvoji!
+            <?=$names['cardText']; ?>
 			  </div>
           </div>
