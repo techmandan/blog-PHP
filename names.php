@@ -13,6 +13,8 @@ $names['desc'] = 'This is the page description';//meta description
 $names['title'] = 'Example title';//webside title
 $names['theme'] = '#268cff';//chrome theme color
 $names['icourl'] = 'https://example.com/favicon.ico';//full icon url
+//analytics
+$names['Ganalytics'] = 'UA-93897496-1';//example code
 //sidebar
 $names['search'] = 'Search something';//search text
 $names['searchbtn'] = 'Search!';//search button text
