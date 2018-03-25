@@ -1,0 +1,5 @@
+I used following templates/libraries:
+bootstrap;
+jquery;
+startbootstrap-blog-home and blog-post;
+hyperlight;
