@@ -33,7 +33,7 @@ $conf['comments']['addText'] = 'Add your comment!';//add comment text
 $names['show1'] = false;//show custom page on navbar
 $names['custom1ur'] = $names['url'].'about.php';//custom page url
 $names['custom1'] = 'About me';//custom page name
-$names['show2'] = false;//show custom page on navbar
+$names['show1'] = false;//show custom page on navbar
 $names['custom2ur'] = $names['url'].'help.php';//custom page url
 $names['custom2'] = 'Help';//custom page name
 //plugins:
