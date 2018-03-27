@@ -1,5 +1,4 @@
 <?
-include('../hyperlight/hyperlight.php');//syntax coloring
 require_once('../functions.php');//settings, config
 if(isset($_GET['id']) | !empty($_GET['id'])){
 	$search = $_GET['id'];
