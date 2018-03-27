@@ -24,3 +24,4 @@ to install by composer.
 ### Other
 You can also install by downloading from GitHub and just un-zip it to folder where you want the blog to live.
 Just don't forget to edit `names.php` for text on the pages, else the blog will don't work(because there's also settings that are REQUIRED by blog, like SQL).
+<a href='https://github.com/techmandan/blog-PHP/wiki/'>see wiki</a>
