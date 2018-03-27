@@ -10,6 +10,12 @@ Config is made by text so no more _install.php_ => just upload _SQL file to your
 ### Configuration is easy as on other software, the only bad thing is the reality that it has no graphics.
 Configuration is made as easy as it can be.
 There's no need to do a one-hour setup, just edit the file and you are all-set.
+
+<a href='http://blog-php.danbulant.eu/names.php?code=php'>demo config(PHP)</a>
+<a href='http://blog-php.danbulant.eu/names.php?code=json'>demo config(JSON)</a>
+<h6>In JSON demo is missing database</h6>
+
+
 # Installation
 ### Composer
 You can install easy be pasting<br/>
