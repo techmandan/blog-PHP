@@ -19,8 +19,34 @@ if($result = $mysqli->query("SELECT * FROM ".$database['subname']." WHERE ".$dat
 	echo '<script>alert("ERROR")</script>';
 	}}
 $currentPage = $names['home'];
-//".$database['subname']."
-//".$database['category']."
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +81,15 @@ $currentPage = $names['home'];
             <small><?=$names['blogSubtitle']; ?></small>
           </h1>
 			 <!-- Blog Post -->
-          
+          <div class="card mb-4">
+            <div class="card-body">
+              <h2 class="card-title">Demo</h2>
+              <p class="card-text">This is a demo page. Also, the post bellow are from my czech blog.</p>
+            </div>
+            <div class="card-footer text-muted">
+              Writen today by 
+              <a href="#">me</a>
+			  </div></div>
 	<?php if($result->num_rows && !empty($result)) { ?>
 			<?php while($a = $result->fetch_assoc()) { ?>
           <!-- Blog Post -->
@@ -71,7 +105,8 @@ $currentPage = $names['home'];
               <a href="./post/index.php?id=<?=$a['id']; ?>" class="btn btn-primary"><?=$names['readmore']; ?> &rarr;</a>
             </div>
             <div class="card-footer text-muted">
-              <?=$names['writen']; echo $a['date'].' '.$names['by']; ?>
+				<?=$names['writen']; 
+				if($names['dates']['useText']){ echo time_elapsed_string($a['date'], $names['dates']['full']);}else{ echo $a['date']; }echo ' '.$names['by']; ?>
               <a href="#"><? if(isset($a['author'])){ echo $a['author']; } else { echo $names['author']; }?></a>
 			  </div></div>
           	<?php } ?>
@@ -100,7 +135,7 @@ $currentPage = $names['home'];
     <!-- Footer -->
     <footer class="py-5 bg-info">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; <?=$names['url']; ?> 2018</p>
+        <p class="m-0 text-center text-white"><?=$names['copyright']['before']; ?> &copy; <?=$names['copyright']['name']; ?> 20<?=date('y'); ?><?=$names['copyright']['after']; ?></p>
       </div>
       <!-- /.container -->
     </footer>
