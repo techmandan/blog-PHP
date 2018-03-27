@@ -1,10 +1,10 @@
 <?php
     
 //this config file is for setting => here is set every text and database
-$database['name'] = 'danblog';
+$database['name'] = '';
 $database['subname'] = 'blog';
-$database['username'] = 'bulant';
-$database['password'] = 'Aritma123';
+$database['username'] = 'admin';
+$database['password'] = '';
 $database['location'] = 'localhost';
 $database['category'] = 'category';
 $database['desc'] = 'description';
