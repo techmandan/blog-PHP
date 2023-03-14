@@ -1,5 +1,10 @@
-## blog-PHP
-### Blog-php is simple and lightweight blogging software with bootstrap styles.
+# blog-PHP
+
+# THIS IS UNSECURE AND ONLY AVAILABLE AS A PUBLIC ARCHIVE
+
+The code contains known security bugs and shouldn't be used. No maintenance or support should be expected (last real update was >5 years ago at the time of writing)
+
+## Blog-php is simple and lightweight blogging software with bootstrap styles.
 
 >  **THE PROJECT IS OUTDATED! PLEASE USE `MY BLOG`, WHICH WILL BE
 > AVAIBLE SOON**
@@ -20,11 +25,11 @@ There's no need to do a one-hour setup, just edit the file and you are all-set.
 
 
 # Installation
-### Composer
+## Composer
 You can install easy be pasting<br/>
 `composer require danielbulant/blog-php`<br/>
 to install by composer.
-### Other
+## Other
 
 > You can also install by downloading from GitHub and just un-zip it to
 > folder where you want the blog to live.
